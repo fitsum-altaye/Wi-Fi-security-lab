@@ -1,0 +1,7 @@
+*.pcap
+*.pcapng
+*.cap
+*.hccapx
+*.hc22000
+*.txt
+!module-3-rogue-ap/www/*.php
