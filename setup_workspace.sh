@@ -28,8 +28,18 @@ touch module-3-rogue-ap/configs/dnsmasq.conf
 touch module-3-rogue-ap/www/index.html
 touch module-3-rogue-ap/www/login.php
 touch module-4-defense/wpa3_enterprise.md
+touch module-4-defense/deauth_detector.py
 
 echo "[+] Setting executable permissions for scripts..."
-chmod +x setup.sh start_evil_twin.sh setup_workspace.sh module-2-cracking/cracking_commands.sh
+# Added deauth_detector.py to chmod
+chmod +x setup.sh start_evil_twin.sh setup_workspace.sh \
+         module-2-cracking/cracking_commands.sh \
+         module-4-defense/deauth_detector.py
+
+echo "[+] Installing necessary dependencies..."
+if ! command -v scapy &> /dev/null; then
+    sudo apt update && sudo apt install -y python3-scapy
+fi
 
 echo "[+] Workspace setup complete!"
+
